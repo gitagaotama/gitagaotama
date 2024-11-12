@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menghitung Luas dan Keliling Segitiga</title>
+    <link rel="stylesheet" href="style.css"> <!-- Menghubungkan CSS -->
+</head>
+<body>
+    <div class="container">
+        <h1>Hitung Luas dan Keliling Segitiga</h1>
+        <div class="input-group">
+            <label for="alas">Alas (a):</label>
+            <input type="number" id="alas" placeholder="Masukkan alas segitiga" required>
+        </div>
+
+        <div class="input-group">
+            <label for="tinggi">Tinggi (t):</label>
+            <input type="number" id="tinggi" placeholder="Masukkan tinggi segitiga" required>
+        </div>
+
+        <div class="input-group">
+            <label for="sisi">Sisi (s):</label>
+            <input type="number" id="sisi" placeholder="Masukkan panjang sisi segitiga" required>
+        </div>
+
+        <button id="hitungButton">Hitung</button>
+
+        <h2>Hasil</h2>
+        <div class="result-column" id="resultColumn">
+            <p id="luas"></p>
+            <p id="keliling"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("hitungButton").addEventListener("click", function() {
+            const alas = parseInt(document.getElementById("alas").value);
+            const tinggi = parseInt(document.getElementById("tinggi").value);
+            const sisi = parseInt(document.getElementById("sisi").value);
+
+            // Validasi input
+            if (isNaN(alas) || isNaN(tinggi) || isNaN(sisi)) {
+                alert("Harap masukkan semua nilai dengan benar!");
+                return;
+            }
+
+            // Menghitung luas
+            const luas = (alas * tinggi) / 2;
+
+            // Menghitung keliling
+            const keliling = sisi * 3; // Karena semua sisi sama
+
+           // Menampilkan hasil tanpa desimal
+            document.getElementById("luas").innerText = "Luas Segitiga: " + Math.round(luas) + " cm²";
+            document.getElementById("keliling").innerText = "Keliling Segitiga: " + Math.round(keliling) + " cm²";
+
+            // Menampilkan kolom hasil
+            const resultColumn = document.getElementById("resultColumn");
+            resultColumn.style.display = "block"; // Pastikan kolom hasil terlihat
+        });
+    </script> <!-- Menghubungkan JavaScript -->
+</body>
+</html\
